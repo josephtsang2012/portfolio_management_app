@@ -95,9 +95,9 @@ def build_ui():
     # Run Analysis
     if run_analysis:
         if not benchmark:
-            st.error("Please enter a benchmark ticker before running the analysis.")
+            st.error("Please enter a benchmark ticker before running result.")
         elif not tickers_and_values:
-            st.error("Please add at least one ticker with a non-zero investment value before running the analysis.")
+            st.error("Please input at least one ticker with a non-zero amount before running result.")
         else:
             start_date_str = start_date.strftime('%Y-%m-%d')
             end_date_str = end_date.strftime('%Y-%m-%d')
