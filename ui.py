@@ -69,9 +69,9 @@ def build_ui():
         # Date Input
         st.markdown("---")
         st.subheader(":calendar: Date Range")
-        st.markdown("Default Jan-1980 as earliest")
-        start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1))
-        end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1))
+        st.markdown("Default Jan-1980 as earliest and today as latest")
+        start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1), max_value=date.today())
+        end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1), max_value=date.today())
 
         # Run Analysis Button
         st.markdown("---")
