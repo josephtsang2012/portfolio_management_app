@@ -67,7 +67,7 @@ def build_ui():
         # Date Input
         st.markdown("---")
         st.subheader(":calendar: Period")
-        st.markdown("Default Jan-1980 as earliest, and today as latest")
+        st.markdown("Default Jan-1980 as earliest, and today as latest. Beware of positive date range.")
         start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1), max_value=date.today())
         end_date = st.date_input("End Date", value=date.today(), min_value=start_date, max_value=date.today())
 
