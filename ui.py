@@ -131,11 +131,6 @@ def build_ui():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #8d8d8d; font-size: 14px;">
-        Created by Luis Fernando Torres, 2024<br>
-        <a href="https://www.linkedin.com/in/luuisotorres/" target="_blank">LinkedIn</a> • 
-        <a href="https://medium.com/@luuisotorres" target="_blank">Medium</a> • 
-        <a href="https://www.kaggle.com/lusfernandotorres" target="_blank">Kaggle</a><br>
-        <a href="https://www.buymeacoffee.com/luuisotorres" target="_blank">Buy Me a Coffee ☕</a><br>
-        <a href="https://luuisotorres.github.io/" target="_blank">https://luuisotorres.github.io/</a>
+        Modified by Joseph Tsang, 2024<br>
     </div>
     """, unsafe_allow_html=True)
