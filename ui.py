@@ -1,6 +1,7 @@
 import streamlit as st
 from datetime import date
 from functions import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
+from streamlit_js_eval import streamlit_js_eval
 # # Ref: https://docs.streamlit.io/develop/api-reference/widgets/st.color_picker
 
 def build_ui():
@@ -84,6 +85,9 @@ def build_ui():
         else:
             st.session_state.reset = False  # Reset the reset flag
 
+        if st.button("Reset Values2"):
+            streamlit_js_eval(js_expressions="parent.window.location.reload()")
+    
     # Main content
     st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
     st.markdown('<p class="description">Build your own investment portfolio with a simple few clicks!</p>', unsafe_allow_html=True)
