@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import date
 from functions import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
-# ##fffdfd
+# # Ref: https://docs.streamlit.io/develop/api-reference/widgets/st.color_picker
 
 def build_ui():
     # Custom CSS
@@ -69,7 +69,7 @@ def build_ui():
         # Date Input
         st.markdown("---")
         st.subheader(":calendar: Date Range")
-        st.markdown("Default Jan-1980 as earliest and today as latest")
+        st.markdown("Default Jan-1980 as earliest, and today as latest")
         start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1), max_value=date.today())
         end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1), max_value=date.today())
 
@@ -78,17 +78,17 @@ def build_ui():
         run_analysis = st.button("See Result")
 
     # Main content
-    st.markdown('<p class="big-font">PortfolioPro</p>', unsafe_allow_html=True)
-    st.markdown('<p class="description">An easy and simple way to keep track of your investment portfolio.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
+    st.markdown('<p class="description">Build your own investment portfolio with a simple few clicks!</p>', unsafe_allow_html=True)
 
-    # Information boxes
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        st.info("📈 Track Performance")
-    with col2:
-        st.info("🔍 Analyze Risk")
-    with col3:
-        st.info("💡 Gain Insights")
+    # # Information boxes
+    # col1, col2, col3 = st.columns(3)
+    # with col1:
+    #     st.info("📈 Track Performance")
+    # with col2:
+    #     st.info("🔍 Analyze Risk")
+    # with col3:
+    #     st.info("💡 Gain Insights")
 
     # Run Analysis
     if run_analysis:
@@ -131,11 +131,6 @@ def build_ui():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #8d8d8d; font-size: 14px;">
-        Created by Luis Fernando Torres, 2024<br>
-        <a href="https://www.linkedin.com/in/luuisotorres/" target="_blank">LinkedIn</a> • 
-        <a href="https://medium.com/@luuisotorres" target="_blank">Medium</a> • 
-        <a href="https://www.kaggle.com/lusfernandotorres" target="_blank">Kaggle</a><br>
-        <a href="https://www.buymeacoffee.com/luuisotorres" target="_blank">Buy Me a Coffee ☕</a><br>
-        <a href="https://luuisotorres.github.io/" target="_blank">https://luuisotorres.github.io/</a>
+        Demo Created and Updated in Oct 2024<br>
     </div>
     """, unsafe_allow_html=True)
