@@ -66,7 +66,7 @@ def build_ui():
 
         # Date Input
         st.markdown("---")
-        st.subheader(":calendar: Date Range")
+        st.subheader(":calendar: Period")
         st.markdown("Default Jan-1980 as earliest, and today as latest")
         start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1), max_value=date.today())
         end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1), max_value=date.today())
@@ -75,8 +75,8 @@ def build_ui():
         st.markdown("---")
         run_analysis = st.button("See Result")
 
-        # Reset button
-        if st.button("Reset Values"): #Javascript to refresh the page
+        # Reset Button
+        if st.button("Reset Values"): #Javascript to refresh the page if true/ pressed
             streamlit_js_eval(js_expressions="parent.window.location.reload()")
     
     # Main content
