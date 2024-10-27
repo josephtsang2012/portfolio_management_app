@@ -37,9 +37,9 @@ def build_ui():
 
     # Sidebar
     with st.sidebar:
-        st.markdown('<p class="sidebar-header">PortfolioPro</p>', unsafe_allow_html=True)
-        st.markdown('<p class="subheader">🚀 Empower your investments</p>', unsafe_allow_html=True)
-        st.markdown("---")
+        # st.markdown('<p class="sidebar-header">Easy Portfolio Manager</p>', unsafe_allow_html=True)
+        # st.markdown('<p class="subheader">🚀 Empower your investments</p>', unsafe_allow_html=True)
+        # st.markdown("---")
         
         # Ticker and Value Input
         st.subheader("📊 Portfolio Composition")
@@ -77,8 +77,8 @@ def build_ui():
         run_analysis = st.button("Run Analysis")
 
     # Main content
-    st.markdown('<p class="big-font">Portfolio Manager</p>', unsafe_allow_html=True)
-    st.markdown('<p class="description">Build your own investment portfolio with ease.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
+    st.markdown('<p class="description">Build your own investment portfolio with a simple few clicks!</p>', unsafe_allow_html=True)
 
     # Information boxes
     col1, col2, col3 = st.columns(3)
