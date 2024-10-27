@@ -5,7 +5,7 @@ from ui import build_ui
 ## Ref: https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config
 st.set_page_config(
     page_title="Portfolio Manager",
-    page_icon=":moneybag:", 
+    page_icon=":heavy_dollar_sign:", 
     layout='wide',
     initial_sidebar_state='auto'
 )
