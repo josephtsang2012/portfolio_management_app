@@ -77,8 +77,8 @@ def build_ui():
         run_analysis = st.button("Run Analysis")
 
     # Main content
-    st.markdown('<p class="big-font">PortfolioPro</p>', unsafe_allow_html=True)
-    st.markdown('<p class="description">An easy and simple way to keep track of your investment portfolio.</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">Portfolio Manager</p>', unsafe_allow_html=True)
+    st.markdown('<p class="description">Build your own investment portfolio with ease.</p>', unsafe_allow_html=True)
 
     # Information boxes
     col1, col2, col3 = st.columns(3)
