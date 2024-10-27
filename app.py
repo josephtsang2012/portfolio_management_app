@@ -2,11 +2,12 @@ import streamlit as st
 from ui import build_ui
 
 # Defining page settings
+## Ref: https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config
 st.set_page_config(
-    page_title="PortfolioPro",
-    page_icon="💰",
+    page_title="Portfolio Manager",
+    page_icon=":moneybag:", 
     layout='wide',
-    initial_sidebar_state='expanded'
+    initial_sidebar_state='auto'
 )
 
 # Set custom theme
