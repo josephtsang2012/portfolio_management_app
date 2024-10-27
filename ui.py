@@ -83,21 +83,12 @@ def build_ui():
     st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
     st.markdown('<p class="description">Build your own investment portfolio with a simple few clicks!</p>', unsafe_allow_html=True)
 
-    # # Information boxes
-    # col1, col2, col3 = st.columns(3)
-    # with col1:
-    #     st.info("📈 Track Performance")
-    # with col2:
-    #     st.info("🔍 Analyze Risk")
-    # with col3:
-    #     st.info("💡 Gain Insights")
-
     # Run Analysis
     if run_analysis:
-        if not benchmark:
-            st.error("Please enter a benchmark ticker before running result.")
-        elif not tickers_and_values:
+        if not tickers_and_values:
             st.error("Please input at least one ticker with a non-zero amount before running result.")
+        elif not benchmark:
+            st.error("Please enter a benchmark ticker before running result.")
         else:
             start_date_str = start_date.strftime('%Y-%m-%d')
             end_date_str = end_date.strftime('%Y-%m-%d')
