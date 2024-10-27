@@ -42,7 +42,7 @@ def build_ui():
         # st.markdown("---")
         
         # Ticker and Value Input
-        st.subheader("📊 Portfolio Composition")
+        st.subheader(":chart: Portfolio Composition")
         if 'num_pairs' not in st.session_state:
             st.session_state['num_pairs'] = 1
 
@@ -55,7 +55,7 @@ def build_ui():
             with col1:
                 ticker = st.text_input(f"Ticker {n+1}", key=f"ticker_{n+1}", placeholder="e.g., AAPL")
             with col2:
-                value = st.number_input(f"Value ($)", min_value=0.0, format="%.2f", key=f"value_{n+1}")
+                value = st.number_input(f"Amount ($)", min_value=0.0, format="%.2f", key=f"value_{n+1}")
             if ticker and value > 0:
                 tickers_and_values[ticker] = value
 
@@ -63,12 +63,12 @@ def build_ui():
 
         # Benchmark Input
         st.markdown("---")
-        st.subheader("🏆 Benchmark")
-        benchmark = st.text_input("Enter benchmark symbol", placeholder="e.g., SPY")
+        st.subheader(":vs: Benchmark")
+        benchmark = st.text_input("Enter benchmark symbol", placeholder="e.g., VOO")
 
         # Date Input
         st.markdown("---")
-        st.subheader("📅 Date Range")
+        st.subheader(":calendar: Date Range")
         start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1900, 1, 1))
         end_date = st.date_input("End Date", value=date.today(), min_value=date(1900, 1, 1))
 
