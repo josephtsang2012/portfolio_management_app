@@ -53,7 +53,7 @@ def build_ui():
             with col1:
                 ticker = st.text_input(f"Ticker {n+1}", key=f"ticker_{n+1}", placeholder="e.g., AAPL")
             with col2:
-                value = st.number_input(f"Amount ($)", min_value=0.0, format="%.2f", key=f"value_{n+1}")
+                value = st.number_input(f"Amount ($)", min_value=0.0, format="%.2f", key=f"value_{n+1}", placeholder="0.00")
             if ticker and value > 0:
                 tickers_and_values[ticker] = value
 
