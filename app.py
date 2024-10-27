@@ -2,14 +2,15 @@ import streamlit as st
 from ui import build_ui
 
 # Defining page settings
+## Ref: https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config
 st.set_page_config(
-    page_title="PortfolioPro",
-    page_icon="💰",
+    page_title="Portfolio Manager",
+    page_icon=":heavy_dollar_sign:", 
     layout='wide',
-    initial_sidebar_state='expanded'
+    initial_sidebar_state='auto'
 )
 
-# Set custom theme
+# Setting theme
 st.markdown("""
     <style>
         :root {
@@ -22,5 +23,5 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Build the UI
+# Building user interface
 build_ui()
