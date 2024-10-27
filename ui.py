@@ -1,7 +1,7 @@
 import streamlit as st
 from datetime import date
 from functions import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
-
+# ##fffdfd
 
 def build_ui():
     # Custom CSS
@@ -10,22 +10,22 @@ def build_ui():
     .big-font {
         font-size:60px !important;
         font-weight: bold;
-        color: #fffdfd;
+        color: #191A19;
     }
                 
     .sidebar-header {
         font-size:18px;
-        color: #fffdfd;
+        color: #191A19;
     }
                 
     .description {
         font-size:18px;
-        color: #fffdfd;
+        color: #191A19;
     }
                                 
     .subheader {
         font-size: 25px;
-        color: #fffdfd;
+        color: #191A19;
     }
     .stButton>button {
         color: #4F4F4F;
@@ -37,9 +37,9 @@ def build_ui():
 
     # Sidebar
     with st.sidebar:
-        st.markdown('<p class="sidebar-header">PortfolioPro</p>', unsafe_allow_html=True)
-        st.markdown('<p class="subheader">🚀 Empower your investments</p>', unsafe_allow_html=True)
-        st.markdown("---")
+        # st.markdown('<p class="sidebar-header">PortfolioPro</p>', unsafe_allow_html=True)
+        # st.markdown('<p class="subheader">🚀 Empower your investments</p>', unsafe_allow_html=True)
+        # st.markdown("---")
         
         # Ticker and Value Input
         st.subheader("📊 Portfolio Composition")
