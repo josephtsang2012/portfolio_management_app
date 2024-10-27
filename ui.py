@@ -42,7 +42,7 @@ def build_ui():
         # st.markdown("---")
         
         # Ticker and Value Input
-        st.subheader("📊 Portfolio Composition")
+        st.subheader(":chart: Portfolio Composition")
         if 'num_pairs' not in st.session_state:
             st.session_state['num_pairs'] = 1
 
@@ -55,7 +55,7 @@ def build_ui():
             with col1:
                 ticker = st.text_input(f"Ticker {n+1}", key=f"ticker_{n+1}", placeholder="e.g., AAPL")
             with col2:
-                value = st.number_input(f"Value ($)", min_value=0.0, format="%.2f", key=f"value_{n+1}")
+                value = st.number_input(f"Amount ($)", min_value=0.0, format="%.2f", key=f"value_{n+1}")
             if ticker and value > 0:
                 tickers_and_values[ticker] = value
 
