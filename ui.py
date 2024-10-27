@@ -63,18 +63,19 @@ def build_ui():
 
         # Benchmark Input
         st.markdown("---")
-        st.subheader("🏆 Benchmark")
-        benchmark = st.text_input("Enter benchmark symbol", placeholder="e.g., SPY")
+        st.subheader(":vs: Benchmark")
+        benchmark = st.text_input("Ticker symbol", placeholder="e.g., VOO")
 
         # Date Input
         st.markdown("---")
-        st.subheader("📅 Date Range")
-        start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1900, 1, 1))
-        end_date = st.date_input("End Date", value=date.today(), min_value=date(1900, 1, 1))
+        st.subheader(":calendar: Date Range")
+        st.description("Default Jan-1980 as earliest")
+        start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1))
+        end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1))
 
         # Run Analysis Button
         st.markdown("---")
-        run_analysis = st.button("Run Analysis")
+        run_analysis = st.button("See Result")
 
     # Main content
     st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
