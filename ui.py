@@ -38,10 +38,6 @@ def build_ui():
 
     # Sidebar
     with st.sidebar:
-        # st.markdown('<p class="sidebar-header">PortfolioPro</p>', unsafe_allow_html=True)
-        # st.markdown('<p class="subheader">🚀 Empower your investments</p>', unsafe_allow_html=True)
-        # st.markdown("---")
-        
         # Ticker and Value Input
         st.subheader(":chart: Portfolio Composition")
         if 'num_pairs' not in st.session_state:
@@ -79,13 +75,7 @@ def build_ui():
         run_analysis = st.button("See Result")
 
         # Reset button
-        if st.button("Reset values"):
-            st.session_state.reset = True  # Mark reset as True if button is pressed
-            st.experimental_rerun()  # Rerun the script
-        else:
-            st.session_state.reset = False  # Reset the reset flag
-
-        if st.button("Reset Values2"):
+        if st.button("Reset Values"): #Javascript to refresh the page
             streamlit_js_eval(js_expressions="parent.window.location.reload()")
     
     # Main content
