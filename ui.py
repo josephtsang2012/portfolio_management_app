@@ -129,7 +129,7 @@ def build_ui():
                     'sharpe': fig2.data[2].marker.color[1]
                 }
 
-    # Signature
+    # Footnote
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #8d8d8d; font-size: 14px;">
