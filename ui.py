@@ -1,8 +1,9 @@
 import streamlit as st
 from datetime import date
 from func import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
+##fffdfd
 
-
+# Ref: https://docs.streamlit.io/develop/api-reference/widgets/st.color_picker
 def build_ui():
     # Custom CSS
     st.markdown("""
@@ -10,22 +11,22 @@ def build_ui():
     .big-font {
         font-size:60px !important;
         font-weight: bold;
-        color: #fffdfd;
+        color: #191A19;
     }
                 
     .sidebar-header {
         font-size:18px;
-        color: #fffdfd;
+        color: #191A19;
     }
                 
     .description {
         font-size:18px;
-        color: #fffdfd;
+        color: #191A19;
     }
                                 
     .subheader {
         font-size: 25px;
-        color: #fffdfd;
+        color: #191A19;
     }
     .stButton>button {
         color: #4F4F4F;
