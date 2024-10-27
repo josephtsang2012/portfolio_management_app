@@ -1,5 +1,5 @@
 import streamlit as st
-from ui_copy import build_ui
+from ui import build_ui
 
 # Defining page settings
 ## Ref: https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config
