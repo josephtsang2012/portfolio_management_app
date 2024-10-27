@@ -1,6 +1,6 @@
 import streamlit as st
 from datetime import date
-from functions import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
+from func import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
 
 
 def build_ui():
