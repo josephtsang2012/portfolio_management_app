@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state='auto'
 )
 
-# Set custom theme
+# Setting theme
 st.markdown("""
     <style>
         :root {
@@ -23,5 +23,5 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Build the UI
+# Building user interface
 build_ui()
