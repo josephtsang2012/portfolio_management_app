@@ -131,6 +131,6 @@ def build_ui():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #8d8d8d; font-size: 14px;">
-        Modified by Joseph Tsang, Oct 2024<br>
+        Created and Updated in Oct 2024 as a Demo <br>
     </div>
     """, unsafe_allow_html=True)
