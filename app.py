@@ -1,7 +1,7 @@
 import streamlit as st
 from ui import build_ui
 
-# ## Ref: https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config
+# Ref: https://docs.streamlit.io/develop/api-reference/configuration/st.set_page_config
 # Defining page settings
 st.set_page_config(
     page_title="Portfolio Manager",
