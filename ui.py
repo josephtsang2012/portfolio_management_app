@@ -78,6 +78,13 @@ def build_ui():
         st.markdown("---")
         run_analysis = st.button("See Result")
 
+        # Reset button
+        if st.button("Reset values"):
+            st.session_state.reset = True  # Mark reset as True if button is pressed
+            st.experimental_rerun()  # Rerun the script
+        else:
+            st.session_state.reset = False  # Reset the reset flag
+
     # Main content
     st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
     st.markdown('<p class="description">Build your own investment portfolio with a simple few clicks!</p>', unsafe_allow_html=True)
