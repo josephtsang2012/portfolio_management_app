@@ -1,5 +1,5 @@
 # Installing yfinance for retrieving data
-!pip install yfinance --quiet
+pip install yfinance --quiet
 
 # Importing necessary libraries
 import streamlit as st
