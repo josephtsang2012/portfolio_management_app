@@ -85,6 +85,10 @@ def build_ui():
 
     # Run Analysis
     if run_analysis:
+        market_df = yf.download("VTI",
+                            start=start_date, end=end_date)
+        market_df = market_df['Adj Close'].fillna(market_df['Close'])
+        market_returns = market_df.pct_change()
         print(market_df)
         print(market_returns)
         if not tickers_and_values:
