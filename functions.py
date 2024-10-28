@@ -63,15 +63,12 @@ def perform_portfolio_analysis(df, tickers_weights):
             # treynor = (individual_excess_returns.mean() / beta.slope).round(2) # Computing Treynor Ratio
             # individual_treynor[ticker] = treynor
 
-            print(individual_returns.head(10))
-
             # Creating subplots for comparison across securities
             # Change: previously row = 1, and column_titles=[...'Risk-Reward']
             fig1 = make_subplots(rows = 2, cols = 2, horizontal_spacing=0.25,
                             column_titles=['Historical Performance Assets', 'Measuring Total Risk','Measuring Systematic Risk','Measuring Alpha'],
                             column_widths=[.55, .45],
                             shared_xaxes=False, shared_yaxes=False)
-    # print(market_returns)
         
     # Adding the historical returns for each ticker on the first subplot    
     for ticker in individual_cumsum.columns:
@@ -335,6 +332,9 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
 
     # Computing market returns
     market_returns = market_df.pct_change()
+
+    print(market_df)
+    print(market_returns)
 
 
     # Plotting a pie plot
