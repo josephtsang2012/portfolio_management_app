@@ -69,7 +69,7 @@ def perform_portfolio_analysis(df, tickers_weights):
                             column_titles=['Historical Performance Assets', 'Measuring Total Risk','Measuring Systematic Risk','Measuring Alpha'],
                             column_widths=[.55, .45],
                             shared_xaxes=False, shared_yaxes=False)
-    print(market_returns)
+    # print(market_returns)
     print(individual_returns)
         
     # Adding the historical returns for each ticker on the first subplot    
