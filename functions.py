@@ -4,7 +4,6 @@ from datetime import date
 import yfinance as yf
 import numpy as np
 import pandas as pd
-from scipy import stats
 import plotly.express as px
 import plotly.graph_objs as go
 import plotly.subplots as sp
@@ -58,15 +57,10 @@ def perform_portfolio_analysis(df, tickers_weights):
             individual_excess_returns = individual_returns - 0.01 / 252 # Computing the excess returns
             sharpe = (individual_excess_returns.mean() / individual_returns.std() * np.sqrt(252)).round(2) # Computing Sharpe Ratio
             individual_sharpe[ticker] = sharpe # Adding Sharpe Ratio for each ticker
-            # # Below is new addition
-            # beta = stats.linregress(market_returns[0],individual_returns[0])
-            # treynor = (individual_excess_returns.mean() / beta.slope).round(2) # Computing Treynor Ratio
-            # individual_treynor[ticker] = treynor
 
             # Creating subplots for comparison across securities
-            # Change: previously row = 1, and column_titles=[...'Risk-Reward']
-            fig1 = make_subplots(rows = 2, cols = 2, horizontal_spacing=0.25,
-                            column_titles=['Historical Performance Assets', 'Measuring Total Risk','Measuring Systematic Risk','Measuring Alpha'],
+            fig1 = make_subplots(rows = 1, cols = 2, horizontal_spacing=0.25,
+                            column_titles=['Historical Performance Assets', 'Risk-Reward'],
                             column_widths=[.55, .45],
                             shared_xaxes=False, shared_yaxes=False)
         
@@ -98,25 +92,6 @@ def perform_portfolio_analysis(df, tickers_weights):
                               hovertemplate = '%{y:.2f}%<br>Annualized Volatility: %{x:.2f}%<br>Sharpe Ratio: %{marker.color:.2f}',
                               textposition='middle center'),
                         row=1, col=2)
-
-    # # Defining colors for markers on the third subplot
-    # treynor_colors = [individual_treynor[ticker] for ticker in individual_cumsum.columns]
-
-    # # Adding markers for each ticker on the third subplot
-    # fig1.add_trace(go.Scatter(x=individual_vol.tolist(),
-    #                           y=individual_cumsum.iloc[-1].tolist(),
-    #                           mode='markers+text',
-    #                           marker=dict(size=75, color = treynor_colors, 
-    #                                       colorscale = 'Bluered_r',
-    #                                       colorbar=dict(title='Treynor Ratio'),
-    #                                       showscale=True),
-    #                           name = 'Returns',
-    #                           text = individual_cumsum.columns.tolist(),
-    #                           textfont=dict(color='white'),
-    #                           showlegend=False,
-    #                           hovertemplate = '%{y:.2f}%<br>Annualized Volatility: %{x:.2f}%<br>Treynor Ratio: %{marker.color:.2f}',
-    #                           textposition='middle center'),
-    #                     row=1, col=2)
     
     # Updating layout
     fig1.update_layout(title={
@@ -131,10 +106,8 @@ def perform_portfolio_analysis(df, tickers_weights):
         
     fig1.update_yaxes(title_text='Returns (%)', col=1)
     fig1.update_yaxes(title_text='Returns (%)', col = 2)
-    fig1.update_yaxes(title_text='Returns (%)', col = 3)
     fig1.update_xaxes(title_text = 'Date', col = 1)
     fig1.update_xaxes(title_text = 'Annualized Volatility (%)', col =2)
-    fig1.update_xaxes(title_text = 'Annualized Volatility (%)', col =3)
             
     return fig1 # Returning figure
 
@@ -323,15 +296,6 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
 
     # Computing benchmark returns
     benchmark_returns = benchmark_df.pct_change()
-
-    # Below is new addition
-    # Obataining market performance for Treynor Ratio and Jensen's Alpha Ratio calculations
-    market_df = yf.download("VTI",
-                            start=start_date, end=end_date)
-    market_df = market_df['Adj Close'].fillna(market_df['Close'])
-
-    # Computing market returns
-    market_returns = market_df.pct_change()
 
 
     # Plotting a pie plot
