@@ -70,7 +70,7 @@ def perform_portfolio_analysis(df, tickers_weights):
                             column_widths=[.55, .45],
                             shared_xaxes=False, shared_yaxes=False)
     # print(market_returns)
-    print(individual_returns)
+            print(individual_returns)
         
     # Adding the historical returns for each ticker on the first subplot    
     for ticker in individual_cumsum.columns:
