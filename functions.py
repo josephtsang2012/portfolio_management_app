@@ -59,8 +59,8 @@ def perform_portfolio_analysis(df, tickers_weights):
             sharpe = (individual_excess_returns.mean() / individual_returns.std() * np.sqrt(252)).round(2) # Computing Sharpe Ratio
             individual_sharpe[ticker] = sharpe # Adding Sharpe Ratio for each ticker
             # Below is new addition
-            beta = stats.linregress(market_returns,individual_returns)
-            treynor = (individual_excess_returns.mean() / beta).round(2) # Computing Treynor Ratio
+            beta = stats.linregress(market_returns[0],individual_returns[0])
+            treynor = (individual_excess_returns.mean() / beta.slope).round(2) # Computing Treynor Ratio
             individual_treynor[ticker] = treynor
 
             # Creating subplots for comparison across securities
