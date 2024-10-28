@@ -85,6 +85,8 @@ def build_ui():
 
     # Run Analysis
     if run_analysis:
+        print(market_df)
+        print(market_returns)
         if not tickers_and_values:
             st.error("Please input at least one ticker with a non-zero amount before running result.")
         elif not benchmark:
