@@ -2,6 +2,9 @@ import streamlit as st
 from datetime import date
 from functions import perform_portfolio_analysis, portfolio_vs_benchmark, portfolio_returns
 from streamlit_js_eval import streamlit_js_eval
+import yfinance as yf
+import numpy as np
+import pandas as pd
 ## Ref: https://docs.streamlit.io/develop/api-reference/widgets/st.color_picker
 ## Ref: https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/
 
