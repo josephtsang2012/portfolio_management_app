@@ -67,7 +67,7 @@ def build_ui():
         # Date Input
         st.markdown("---")
         st.subheader(":calendar: Period")
-        st.markdown("Default Jan-1980 as earliest, and today as latest. Beware of positive date range.")
+        st.markdown("Default Jan-1980 as earliest, and today as latest.\n Valid period is at least 30 days.\n Start date should be a trading day.")
         start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1), max_value=date.today())
         end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1), max_value=date.today())
 
@@ -91,6 +91,8 @@ def build_ui():
             st.error("Please enter a benchmark ticker before running result.")
         elif int((end_date - start_date).days) <30:
             st.error("Please set end date at least 30 days beyond start date before running result.")
+        elif (start_date.isoweekday() = 6 or start_date.isoweekday() = 7):
+            st.error("Please set the start date as a trading day before running result.")   
         else:
             start_date_str = start_date.strftime('%Y-%m-%d')
             end_date_str = end_date.strftime('%Y-%m-%d')
