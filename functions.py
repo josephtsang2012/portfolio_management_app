@@ -358,12 +358,12 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
 
     #fig.show() # Displaying Portfolio Allocation plot
 
-    # If we have more than one security in the portfolio, 
-    # we run function to evaluate each security individually
-    fig1 = None
-    if len(tickers_weights) > 1:
-        fig1 = perform_portfolio_analysis(df, tickers_weights)
-        #fig1.show()
-    # Displaying Portfolio vs Benchmark plot    
-    #fig2.show()
-    return "success", (fig, fig1, fig2)
+    # # If we have more than one security in the portfolio, 
+    # # we run function to evaluate each security individually
+    # fig1 = None
+    # if len(tickers_weights) > 1:
+    #     fig1 = perform_portfolio_analysis(df, tickers_weights)
+    #     #fig1.show()
+    # # Displaying Portfolio vs Benchmark plot    
+    # #fig2.show()
+    # return "success", (fig, fig1, fig2)
