@@ -333,9 +333,6 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
     # Computing market returns
     market_returns = market_df.pct_change()
 
-    print(market_df)
-    print(market_returns)
-
 
     # Plotting a pie plot
     fig = go.Figure(data=[go.Pie(
@@ -356,14 +353,14 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
     # Running function to compare portfolio and benchmark
     fig2 = portfolio_vs_benchmark(port_returns, benchmark_returns)    
 
-    #fig.show() # Displaying Portfolio Allocation plot
+    fig.show() # Displaying Portfolio Allocation plot
 
-    # # If we have more than one security in the portfolio, 
-    # # we run function to evaluate each security individually
-    # fig1 = None
-    # if len(tickers_weights) > 1:
-    #     fig1 = perform_portfolio_analysis(df, tickers_weights)
-    #     #fig1.show()
-    # # Displaying Portfolio vs Benchmark plot    
-    # #fig2.show()
-    # return "success", (fig, fig1, fig2)
+    # If we have more than one security in the portfolio, 
+    # we run function to evaluate each security individually
+    fig1 = None
+    if len(tickers_weights) > 1:
+        fig1 = perform_portfolio_analysis(df, tickers_weights)
+        #fig1.show()
+    # Displaying Portfolio vs Benchmark plot    
+    #fig2.show()
+    return "success", (fig, fig1, fig2)
