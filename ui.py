@@ -89,7 +89,7 @@ def build_ui():
             st.error("Please input at least one ticker with a non-zero amount before running result.")
         elif not benchmark:
             st.error("Please enter a benchmark ticker before running result.")
-        elif end_date - start_date <30:
+        elif int((end_date - start_date).days) <30:
             st.error("Please set end date at least 30 days beyond start date before running result.")
         else:
             start_date_str = start_date.strftime('%Y-%m-%d')
