@@ -68,8 +68,8 @@ def build_ui():
         st.markdown("---")
         st.subheader(":calendar: Period")
         st.text("Default Jan-1980 as earliest,\nand today as latest.\nValid period is at least 30 days.\nStart date should be a trading day.")
-        start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1), max_value=date.today())
-        end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1), max_value=date.today())
+        start_date = st.date_input("Start Date", value=date.today().replace(year=date.today().year - 1), min_value=date(1980, 1, 1))
+        end_date = st.date_input("End Date", value=date.today(), min_value=date(1980, 1, 1))
 
         # Run Analysis Button
         st.markdown("---")
@@ -89,10 +89,10 @@ def build_ui():
             st.error("Please input at least one ticker with a non-zero amount before running result.")
         elif not benchmark:
             st.error("Please enter a benchmark ticker before running result.")
-        # elif int((end_date - start_date).days) <30:
-        #     st.error("Please set end date at least 30 days beyond start date before running result.")
-        # elif (start_date.isoweekday()==6 or start_date.isoweekday()==7):
-        #     st.error("Please set the start date as a trading day before running result.")   
+        elif int((end_date - start_date).days) <30:
+            st.error("Please set end date at least 30 days beyond start date before running result.")
+        elif (start_date.isoweekday()==6 or start_date.isoweekday()==7):
+            st.error("Please set the start date as a trading day before running result.")   
         else:
             start_date_str = start_date.strftime('%Y-%m-%d')
             end_date_str = end_date.strftime('%Y-%m-%d')
@@ -128,6 +128,6 @@ def build_ui():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #8d8d8d; font-size: 14px;">
-        Demo Created and Updated in Oct 2024<br>
+        Demo created and updated in Oct 2024<br>
     </div>
     """, unsafe_allow_html=True)
