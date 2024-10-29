@@ -17,6 +17,12 @@ init_notebook_mode(connected=True)
 import warnings
 warnings.filterwarnings('ignore')
 
+def check_ticker(ticker):
+    if len(yf.Ticker(ticker).history(period="max"))>0:
+        return True
+    else:
+        return False
+
 def perform_portfolio_analysis(df, tickers_weights):
     """
     This function takes the historical data and the weights of the securities in the portfolio,
@@ -242,6 +248,19 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
       which also needs to be defined separately.
     """
 
+    # Checking ticker symbol
+    wrong_tickers = []
+    for ticker in tickers_and_values.keys():
+        if check_ticker(ticker)==False:
+            wrong_tickers.append(ticker)
+    if wrong_tickers:
+        error_message = f"No such portfolio ticker symbol(s) exist: {', '.join(wrong_tickers)}"
+        return "error", error_message
+
+    if check_ticker(benchmark)==False:
+        error_message = f"No such benchmark ticker symbol exist: {benchmark}"
+        return "error", error_message
+    
     # Obtaining tickers data with yfinance
     df = yf.download(tickers=list(tickers_and_values.keys()),
                      start=start_date, end=end_date)
