@@ -285,14 +285,16 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
         port_returns = weighted_returns.sum(axis=1) # Sum weighted returns to build portfolio returns
     # If there is only one security in the portfolio...
     else:
-        df = df['Adj Close'].fillna(df['Close'])  # Obtaining 'Adjusted Close'. If not available, use 'Close'
-        port_returns = df.pct_change() # Computing returns without weights
+        # df = df['Adj Close'].fillna(df['Close'])  # Obtaining 'Adjusted Close'. If not available, use 'Close' #Edited
+        # port_returns = df.pct_change() # Computing returns without weights #Edited
+        port_returns = df[ticker].pct_change() # Computing returns without weights #Edited        
 
     # Obtaining benchmark data with yfinance
     benchmark_df = yf.download(benchmark, 
                                start=start_date, end=end_date) 
     # Obtaining 'Adjusted Close'. If not available, use 'Close'.
     benchmark_df = benchmark_df['Adj Close'].fillna(benchmark_df['Close'])
+    benchmark_df = benchmark_df[benchmark] #Edited
 
     # Computing benchmark returns
     benchmark_returns = benchmark_df.pct_change()
