@@ -1,4 +1,4 @@
-# Importing necessary libraries
+# Importing libraries
 import streamlit as st
 from datetime import date
 import yfinance as yf
@@ -14,30 +14,26 @@ from IPython.display import display
 from plotly.offline import init_notebook_mode
 init_notebook_mode(connected=True)
 
-# Hiding Warnings
 import warnings
 warnings.filterwarnings('ignore')
 
 def perform_portfolio_analysis(df, tickers_weights):
     """
-    This function takes historical stock data and the weights of the securities in the portfolio,
-    It calculates individual security returns, cumulative returns, volatility, and Sharpe Ratios.
-    It then visualizes this data, showing historical performance and a risk-reward plot.
+    This function takes the historical data and the weights of the securities in the portfolio,
+    and calculates each's daily returns, cumulative returns, and volatility to derive Sharpe Ratios.
 
     Parameters:
-    - df (pd.DataFrame): DataFrame containing historical stock data with securities as columns.
+    - df (pd.DataFrame): DataFrame containing the historical closing price of the securities as columns.
     - tickers_weights (dict): A dictionary where keys are ticker symbols (str) and values are their 
-        respective weights (float)in the portfolio.
+        respective weights (float) in the portfolio.
 
     Returns:
     - fig1: A Plotly Figure with two subplots:
       1. Line plot showing the historical returns of each security in the portfolio.
-      2. Plot showing the annualized volatility and last cumulative return of each security 
-        colored by their respective Sharpe Ratio.
+      2. Plot showing the annualized volatility and cumulative return over the selected period of each security, 
+          as well as indicating their respective Sharpe Ratio.
 
     Notes:
-    - The function assumes that 'pandas', 'numpy', and 'plotly.graph_objects' are imported as 'pd', 'np', and 'go' respectively.
-    - The function also utilizes 'plotly.subplots.make_subplots' for creating subplots.
     - The risk-free rate is assumed to be 1% per annum for Sharpe Ratio calculation.
     """
 
