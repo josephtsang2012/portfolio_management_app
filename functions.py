@@ -294,7 +294,7 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
                                start=start_date, end=end_date) 
     # Obtaining 'Adjusted Close'. If not available, use 'Close'.
     benchmark_df = benchmark_df['Adj Close'].fillna(benchmark_df['Close'])
-    benchmark_df = benchmark_df[benchmark] #Edited
+    # benchmark_df = benchmark_df[benchmark] #Edited
 
     # Computing benchmark returns
     benchmark_returns = benchmark_df.pct_change()
