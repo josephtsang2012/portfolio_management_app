@@ -253,12 +253,12 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
     for ticker in tickers_and_values.keys():
         if check_ticker(ticker)==False:
             wrong_tickers.append(ticker)
-    if wrong_tickers:
-        error_message = f"No such portfolio ticker symbol(s) exist: {', '.join(wrong_tickers)}"
-        return "error", error_message
 
     if check_ticker(benchmark)==False:
-        error_message = f"No such benchmark ticker symbol exist: {benchmark}"
+        wrong_tickers.append(ticker)
+    
+    if wrong_tickers:
+        error_message = f"No such ticker symbol(s) exist: {', '.join(wrong_tickers)}"
         return "error", error_message
     
     # Obtaining tickers data with yfinance
