@@ -77,9 +77,9 @@ def build_ui():
         st.markdown("---")
         run_analysis = st.button("See Result")
 
-        # # Reset Button
-        # if st.button("Reset Values"): #Javascript to refresh the page if true/ pressed
-        #     streamlit_js_eval(js_expressions="parent.window.location.reload()")
+        # Reset Button
+        if st.button("Reset Values"): #Javascript to refresh the page if true/ pressed
+            streamlit_js_eval(js_expressions="parent.window.location.reload()")
     
     # Main content
     st.markdown('<p class="big-font">Easy Portfolio Manager</p>', unsafe_allow_html=True)
