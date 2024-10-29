@@ -18,6 +18,11 @@ import warnings
 warnings.filterwarnings('ignore')
 
 def check_ticker(ticker):
+    """
+    This function helps to check whether the ticker symbols inputted by users have been correctly entered.
+    If there is no historical records existed in Yahoo Finance, then it is safe to assume that the ticker
+    system is FALSE.
+    """
     if len(yf.Ticker(ticker).history(period="max"))>0:
         return True
     else:
@@ -247,19 +252,6 @@ def portfolio_returns(tickers_and_values, start_date, end_date, benchmark):
     - Another helper function 'perform_portfolio_analysis' is called for portfolios with more than one security,
       which also needs to be defined separately.
     """
-
-    # # Checking ticker symbol
-    # wrong_tickers = []
-    # for ticker in tickers_and_values.keys():
-    #     if check_ticker(ticker)==False:
-    #         wrong_tickers.append(ticker)
-
-    # if check_ticker(benchmark)==False:
-    #     wrong_tickers.append(ticker)
-    
-    # if wrong_tickers:
-    #     error_message = f"No such ticker symbol(s) exist: {', '.join(wrong_tickers)}"
-    #     return "error", error_message
     
     # Checking ticker symbol
     wrong_tickers = []
