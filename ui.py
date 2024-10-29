@@ -85,10 +85,12 @@ def build_ui():
 
     # Run Analysis
     if run_analysis:
-        if not tickers_and_values:
-            st.error("Please input at least one ticker with a non-zero amount before running result.")
-        elif not benchmark:
+        if not benchmark:
             st.error("Please enter a benchmark ticker before running result.")
+        elif not tickers_and_values:
+            st.error("Please input at least one ticker with a non-zero amount before running result.")
+        # elif not benchmark:
+        #     st.error("Please enter a benchmark ticker before running result.")
         elif int((end_date - start_date).days) <30:
             st.error("Please set end date at least 30 days beyond start date before running result.")
         elif (start_date.isoweekday()==6 or start_date.isoweekday()==7):
